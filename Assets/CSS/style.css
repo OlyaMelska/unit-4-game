@@ -1,0 +1,20 @@
+body{
+	background: url("../Images/map.jpg");
+ 	background-repeat: no-repeat;
+ 	background-position: center top;
+	background-size: cover;
+	color: white;
+	font-family: 'Cinzel', serif;
+	text-align: center;
+}
+
+header{
+	font-size: 72px;
+	background: -webkit-linear-gradient(#f9bb34, #fff);
+  	-webkit-background-clip: text;
+  	-webkit-text-fill-color: transparent;
+	display: block;
+	justify-content: center;
+	margin-top: 40px;
+
+}
