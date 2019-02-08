@@ -1,20 +1,56 @@
-body{
+body {
 	background: url("../Images/map.jpg");
- 	background-repeat: no-repeat;
- 	background-position: center top;
+	background-repeat: no-repeat;
+	background-position: center top;
 	background-size: cover;
 	color: white;
 	font-family: 'Cinzel', serif;
 	text-align: center;
 }
 
-header{
+header {
 	font-size: 72px;
 	background: -webkit-linear-gradient(#f9bb34, #fff);
-  	-webkit-background-clip: text;
-  	-webkit-text-fill-color: transparent;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
 	display: block;
 	justify-content: center;
 	margin-top: 40px;
+}
 
+.row {
+	height: 200px;
+}
+
+.col-mg-3 {
+	width: 200px;
+	margin: 5px;
+}
+
+.brienne {
+	background: url("../Images/brienne.jpg");
+	background-size: 200px 200px;
+	position: center;
+	background-repeat: no-repeat;
+}
+
+.jaime {
+	background: url("../Images/jaime.jpg");
+	background-size: 200px 200px;
+	position: center;
+	background-repeat: no-repeat;
+}
+
+.whiteWalker {
+	background: url("../Images/whitewalker.jpg");
+	background-size: 200px 200px;
+	position: center;
+	background-repeat: no-repeat;
+}
+
+.john {
+	background: url("../Images/jonsnow.jpg");
+	background-size: 200px 200px;
+	position: center;
+	background-repeat: no-repeat;
 }
