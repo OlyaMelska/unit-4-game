@@ -27,6 +27,25 @@ header {
 	margin: 5px;
 }
 
+main {
+	/* position: relative; */
+	width: 100%;
+	height: 100%;
+}
+
+main::before {
+	content: '';
+	display: block;
+	position: absolute;
+	margin-left: 140px;
+	width: 80%;
+	height: 130vh;
+	background: url('../Images/back.jpg');
+	background-repeat: repeat;
+	opacity: 0.5;
+	z-index: -1;
+}
+
 .brienne {
 	background: url("../Images/brienne.jpg");
 	background-size: 200px 200px;
@@ -53,4 +72,27 @@ header {
 	background-size: 200px 200px;
 	position: center;
 	background-repeat: no-repeat;
+}
+
+.info {
+	padding-top: 130px;
+}
+
+p {
+	font-size: 12px;
+}
+
+h2 {
+	font-size: 32px;
+	background: -webkit-linear-gradient(#fff, #f9bb34);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.names {
+	margin-bottom: 5px;
+}
+
+.hide {
+	display: none;
 }
