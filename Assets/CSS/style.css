@@ -1,6 +1,6 @@
 body {
 	background: url("../Images/map.jpg");
-	background-repeat: no-repeat;
+	background-repeat: repeat-y;
 	background-position: center top;
 	background-size: cover;
 	color: white;
@@ -18,7 +18,7 @@ header {
 	margin-top: 40px;
 }
 
-.row {
+.high-row {
 	height: 200px;
 }
 
@@ -37,9 +37,9 @@ main::before {
 	content: '';
 	display: block;
 	position: absolute;
-	margin-left: 140px;
+	margin-left: 5%;
 	width: 80%;
-	height: 130vh;
+	height: 100vh;
 	background: url('../Images/back.jpg');
 	background-repeat: repeat;
 	opacity: 0.5;
