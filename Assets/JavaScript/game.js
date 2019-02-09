@@ -5,6 +5,7 @@ $(document).ready(function() {
   let player;
   let defender;
   let playerHealth;
+  let initialPower;
   let playerAttackPower;
   let playerCounterAttack;
   let defenderHealth;
@@ -25,6 +26,11 @@ $(document).ready(function() {
         $("#enemies").append($(".characters"));
       });
       selectDefender();
+      playerAttackPower = $(player)
+        .find(".attackPower")
+        .text();
+      initialPower = playerAttackPower;
+      console.log("Initial Power", initialPower);
       attack();
     } else {
     }
@@ -42,27 +48,62 @@ $(document).ready(function() {
     });
   }
 
+  function removeDefender(defeatedPlayer) {
+    $(defeatedPlayer).attr("class", "hide");
+  }
+
   function attack() {
     playerHealth = $(player)
       .find(".healthPoints")
       .text();
-    playerAttackPower = $(player)
-      .find(".attackPower")
-      .text();
+
     playerCounterAttack = $(player)
       .find(".counterAttackPower")
       .text();
 
     $("#attack").on("click", () => {
-      defenderHealth = $(defender)
-        .find(".healthPoints")
-        .text();
-      defenderAttackPower = $(defender)
-        .find(".attackPower")
-        .text();
-      defenderCounterAttack = $(defender)
-        .find(".counterAttackPower")
-        .text();
+      if (playerHealth > 0) {
+        defenderHealth = $(defender)
+          .find(".healthPoints")
+          .text();
+        defenderAttackPower = $(defender)
+          .find(".attackPower")
+          .text();
+        defenderCounterAttack = $(defender)
+          .find(".counterAttackPower")
+          .text();
+
+        if (defenderHealth > 0) {
+          playerHealth = playerHealth - defenderCounterAttack;
+          console.log("Player Health", playerHealth);
+          playerAttackPower =
+            parseInt(playerAttackPower) + parseInt(initialPower);
+          console.log("Power", playerAttackPower);
+
+          defenderHealth =
+            parseInt(defenderHealth) - parseInt(playerAttackPower);
+          console.log("Defender Health", defenderHealth);
+
+          $(player)
+            .find(".healthPoints")
+            .text(playerHealth);
+
+          $(player)
+            .find(".attackPower")
+            .text(playerAttackPower);
+
+          $(defender)
+            .find(".healthPoints")
+            .text(defenderHealth);
+        } else {
+          clickCount2 = 0;
+          removeDefender(defender);
+          selectDefender();
+          attack();
+        }
+      } else {
+        alert("You lost the Game!");
+      }
     });
   }
 });

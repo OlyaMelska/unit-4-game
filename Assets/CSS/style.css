@@ -100,3 +100,9 @@ h2 {
 #chosenCharacter {
 	display: block;
 }
+
+.red {
+	background: -webkit-linear-gradient(#aa0505, #f9bb34);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
