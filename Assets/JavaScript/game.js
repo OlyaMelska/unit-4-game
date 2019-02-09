@@ -1,12 +1,20 @@
 $(document).ready(function() {
-  $(".characters").on("click", () => {
-    // $(".characters").attr("class", ".hide");
-    let $clickedCharacter = $(this).val();
-    $("#chosenCharacter").append($clickedCharacter);
+  let clickCount = 0;
+  let player;
 
-    console.log($clickedCharacter);
+  $(".characters").on("click", event => {
+    //
+    if (clickCount === 0) {
+      clickCount++;
+      let clicked = event.target;
+      player = clicked;
+      $("#chosenCharacter").append(clicked);
+      $(player).attr("id", "player");
+    } else {
+    }
   });
 });
+$("#enemies").append($(".characters"));
 
 //   let characters = [
 //     {
