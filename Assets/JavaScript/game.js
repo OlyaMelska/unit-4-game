@@ -1,20 +1,71 @@
 $(document).ready(function() {
   let clickCount = 0;
+  let clickCount2 = 0;
+  let attackCounter = 0;
   let player;
+  let defender;
+  let playerHealth;
+  let playerAttackPower;
+  let playerCounterAttack;
+  let defenderHealth;
+  let defenderAttackPower;
+  let defenderCounterAttack;
 
   $(".characters").on("click", event => {
-    //
     if (clickCount === 0) {
       clickCount++;
-      let clicked = event.target;
-      player = clicked;
-      $("#chosenCharacter").append(clicked);
+      player = event.target;
+      $(player).removeClass("characters");
+      $("#chosenCharacter").append(player);
+
       $(player).attr("id", "player");
+      $(".characters").each((index, element) => {
+        let $arr = $(".characters").target;
+        console.log($arr);
+        $("#enemies").append($(".characters"));
+      });
+      selectDefender();
+      attack();
     } else {
     }
   });
+
+  function selectDefender() {
+    $(".characters").on("click", () => {
+      if (clickCount2 === 0) {
+        clickCount2++;
+        defender = event.target;
+        console.log(defender);
+        $(".defender").append(defender);
+      } else {
+      }
+    });
+  }
+
+  function attack() {
+    playerHealth = $(player)
+      .find(".healthPoints")
+      .text();
+    playerAttackPower = $(player)
+      .find(".attackPower")
+      .text();
+    playerCounterAttack = $(player)
+      .find(".counterAttackPower")
+      .text();
+
+    $("#attack").on("click", () => {
+      defenderHealth = $(defender)
+        .find(".healthPoints")
+        .text();
+      defenderAttackPower = $(defender)
+        .find(".attackPower")
+        .text();
+      defenderCounterAttack = $(defender)
+        .find(".counterAttackPower")
+        .text();
+    });
+  }
 });
-$("#enemies").append($(".characters"));
 
 //   let characters = [
 //     {
