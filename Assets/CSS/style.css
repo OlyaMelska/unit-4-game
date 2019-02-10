@@ -8,23 +8,17 @@ body {
 	text-align: center;
 }
 
-.header {
+.bigText {
 	font-size: 72px;
 	background: -webkit-linear-gradient(#f9bb34, #fff);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
-	display: block;
-	justify-content: center;
-	margin-top: 40px;
+	margin-top: 20px;
 }
 
 #headerImg {
 	height: 10%;
 	width: 80%;
-}
-
-.high-row {
-	height: 200px;
 }
 
 .col-mg-3 {
@@ -33,22 +27,25 @@ body {
 }
 
 main {
-	/* position: relative; */
 	width: 100%;
 	height: 100%;
 }
 
-main::before {
+.container::before {
 	content: '';
 	display: block;
 	position: absolute;
-	margin-left: 5%;
+	margin-left: -45px;
 	width: 80%;
 	height: 100%;
 	background: url('../Images/back.jpg');
 	background-repeat: repeat;
 	opacity: 0.5;
 	z-index: -1;
+}
+
+.container {
+	margin-top: 20px;
 }
 
 .brienne {
@@ -110,10 +107,4 @@ h3 {
 
 #chosenCharacter {
 	display: block;
-}
-
-.red {
-	background: -webkit-linear-gradient(#aa0505, #f9bb34);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
 }

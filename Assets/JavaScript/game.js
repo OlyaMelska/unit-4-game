@@ -8,8 +8,7 @@ $(document).ready(function() {
   let playerAttackPower;
   let defenderHealth;
   let defenderCounterAttack;
-  let defendersLeft = true;
-  let defendersCount = 3;
+  let numberOfDefenders = 3;
 
   selectPlayer();
 
@@ -18,6 +17,7 @@ $(document).ready(function() {
       if (clickCount === 0) {
         clickCount++;
         player = event.target;
+        $(".selectCharacter").html("");
         $(player).removeClass("characters");
         $("#chosenCharacter").append(player);
 
@@ -43,9 +43,8 @@ $(document).ready(function() {
     $(".characters").on("click", () => {
       if (clickCount2 === 0) {
         clickCount2++;
-
+        numberOfDefenders--;
         defender = event.target;
-        console.log(defender);
         $(".defender").append(defender);
       } else {
       }
@@ -119,48 +118,16 @@ $(document).ready(function() {
           selectDefender();
           attack();
         }
+        if (numberOfDefenders === 0) {
+          $(".gameFlow")
+            .html("<h1>You Won the Game!</h1>")
+            .addClass("bigText");
+        }
       } else {
         $(".gameFlow")
-          .html("<h1>You LOST the Game!</h1>")
-          .addClass("header");
+          .html("<h1>You Lost the Game!</h1>")
+          .addClass("bigText");
       }
     });
   }
 });
-
-//   let characters = [
-//     {
-//       name: "Jon Snow",
-//       healthPoints: 200, //life length
-//       attackPower: 20, // power of the hit, increases with each hit
-//       counterAttackPower: 160 //
-//     },
-//     {
-//       name: "Jaime Lannister",
-//       healthPoints: 160, //life length
-//       attackPower: 16, // power of the hit, increases with each hit
-//       counterAttackPower: 110 //
-//     },
-//     {
-//       name: "White Walker",
-//       healthPoints: 220, //life length
-//       attackPower: 22, // power of the hit, increases with each hit
-//       counterAttackPower: 180 //
-//     },
-//     {
-//       name: "Brienne of Tarth",
-//       healthPoints: 180, //life length
-//       attackPower: 18, // power of the hit, increases with each hit
-//       counterAttackPower: 120 //
-//     }
-//   ];
-//   $(characters).each((key, element) => {
-//     $(".names").text(element.name);
-//     console.log(element.name);
-//   });
-// characters.forEach(element => {
-//   $(".names").text(element.name);
-
-//   console.log($(".names"));
-//   console.log(element.name);
-// });
