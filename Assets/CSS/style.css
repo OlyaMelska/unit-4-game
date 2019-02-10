@@ -8,7 +8,7 @@ body {
 	text-align: center;
 }
 
-header {
+.header {
 	font-size: 72px;
 	background: -webkit-linear-gradient(#f9bb34, #fff);
 	-webkit-background-clip: text;
@@ -16,6 +16,11 @@ header {
 	display: block;
 	justify-content: center;
 	margin-top: 40px;
+}
+
+#headerImg {
+	height: 10%;
+	width: 80%;
 }
 
 .high-row {
@@ -39,7 +44,7 @@ main::before {
 	position: absolute;
 	margin-left: 5%;
 	width: 80%;
-	height: 100vh;
+	height: 100%;
 	background: url('../Images/back.jpg');
 	background-repeat: repeat;
 	opacity: 0.5;
@@ -47,28 +52,28 @@ main::before {
 }
 
 .brienne {
-	background: url("../Images/brienne.jpg");
+	background: url("../Images/brienne2.jpg");
 	background-size: 200px 200px;
 	position: center;
 	background-repeat: no-repeat;
 }
 
 .jaime {
-	background: url("../Images/jaime.jpg");
+	background: url("../Images/jaime2.jpg");
 	background-size: 200px 200px;
 	position: center;
 	background-repeat: no-repeat;
 }
 
 .whiteWalker {
-	background: url("../Images/whitewalker.jpg");
+	background: url("../Images/whitewalker2.jpg");
 	background-size: 200px 200px;
 	position: center;
 	background-repeat: no-repeat;
 }
 
 .john {
-	background: url("../Images/jonsnow.jpg");
+	background: url("../Images/jonsnow2.jpg");
 	background-size: 200px 200px;
 	position: center;
 	background-repeat: no-repeat;
@@ -84,6 +89,12 @@ p {
 
 h2 {
 	font-size: 32px;
+	background: -webkit-linear-gradient(#fff, #f9bb34);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+h3 {
 	background: -webkit-linear-gradient(#fff, #f9bb34);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;

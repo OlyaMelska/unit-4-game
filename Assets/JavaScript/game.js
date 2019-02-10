@@ -1,45 +1,49 @@
 $(document).ready(function() {
   let clickCount = 0;
   let clickCount2 = 0;
-  let attackCounter = 0;
   let player;
   let defender;
   let playerHealth;
   let initialPower;
   let playerAttackPower;
-  let playerCounterAttack;
   let defenderHealth;
-  let defenderAttackPower;
   let defenderCounterAttack;
+  let defendersLeft = true;
+  let defendersCount = 3;
 
-  $(".characters").on("click", event => {
-    if (clickCount === 0) {
-      clickCount++;
-      player = event.target;
-      $(player).removeClass("characters");
-      $("#chosenCharacter").append(player);
+  selectPlayer();
 
-      $(player).attr("id", "player");
-      $(".characters").each((index, element) => {
-        let $arr = $(".characters").target;
-        console.log($arr);
-        $("#enemies").append($(".characters"));
-      });
-      selectDefender();
-      playerAttackPower = $(player)
-        .find(".attackPower")
-        .text();
-      initialPower = playerAttackPower;
-      console.log("Initial Power", initialPower);
-      attack();
-    } else {
-    }
-  });
+  function selectPlayer() {
+    $(".characters").on("click", event => {
+      if (clickCount === 0) {
+        clickCount++;
+        player = event.target;
+        $(player).removeClass("characters");
+        $("#chosenCharacter").append(player);
+
+        $(player).attr("id", "player");
+        $(".characters").each((index, element) => {
+          let $arr = $(".characters").target;
+          console.log($arr);
+          $("#enemies").append($(".characters"));
+        });
+        selectDefender();
+        playerAttackPower = $(player)
+          .find(".attackPower")
+          .text();
+        initialPower = playerAttackPower;
+        console.log("Initial Power", initialPower);
+        attack();
+      } else {
+      }
+    });
+  }
 
   function selectDefender() {
     $(".characters").on("click", () => {
       if (clickCount2 === 0) {
         clickCount2++;
+
         defender = event.target;
         console.log(defender);
         $(".defender").append(defender);
@@ -57,17 +61,10 @@ $(document).ready(function() {
       .find(".healthPoints")
       .text();
 
-    playerCounterAttack = $(player)
-      .find(".counterAttackPower")
-      .text();
-
     $("#attack").on("click", () => {
       if (playerHealth > 0) {
         defenderHealth = $(defender)
           .find(".healthPoints")
-          .text();
-        defenderAttackPower = $(defender)
-          .find(".attackPower")
           .text();
         defenderCounterAttack = $(defender)
           .find(".counterAttackPower")
@@ -92,6 +89,27 @@ $(document).ready(function() {
             .find(".attackPower")
             .text(playerAttackPower);
 
+          $(".gameFlow").html(
+            "<h3>You've attacked " +
+              $(defender)
+                .find(".names")
+                .text() +
+              " with a power of " +
+              playerAttackPower +
+              "</h3>"
+          );
+
+          $(".gameFlow").append(
+            "<h3>" +
+              $(defender)
+                .find(".names")
+                .text() +
+              " hurt you with a power of " +
+              defenderCounterAttack +
+              " poins! And your current health is at " +
+              playerHealth +
+              " points!</h3>"
+          );
           $(defender)
             .find(".healthPoints")
             .text(defenderHealth);
@@ -102,7 +120,9 @@ $(document).ready(function() {
           attack();
         }
       } else {
-        alert("You lost the Game!");
+        $(".gameFlow")
+          .html("<h1>You LOST the Game!</h1>")
+          .addClass("header");
       }
     });
   }
